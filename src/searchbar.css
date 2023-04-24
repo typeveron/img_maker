@@ -1,0 +1,50 @@
+.search-bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+  
+  input[type='text'] {
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+    width: 200%; /* Add this line to make the input field wider */
+  }
+  
+  button {
+    font-size: 24px;
+    background-color: #0077ff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 50%; /* Add this line to make the button wider */
+    max-width: 200px; /* Add this line to limit the button's maximum width */
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .theImg {
+    width: 250px;
+    height: 250px;
+    margin-top: 100px;
+    object-fit: cover;
+  }
+  
+
+  
