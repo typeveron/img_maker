@@ -30,8 +30,12 @@ const generateId = (): string => {
         });
         console.log('Success:', response.data);
         setSearchResults(response.data);
-      } catch (error) {
-        console.log('Error:', error);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          console.log(error.message);
+        } else {
+          console.log("Unknown error occurred");
+        }
       }
     };
   

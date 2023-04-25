@@ -24,6 +24,7 @@ const logger = winston.createLogger({
 });
 
 
+
 app.use(cors());
 
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
