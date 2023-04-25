@@ -17,6 +17,9 @@ const generateId = (): string => {
   const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+
+  
+    const URL = process.env.REACT_APP_SERVER_RENDER;
   
     const handleSearch = async () => {
       try {
