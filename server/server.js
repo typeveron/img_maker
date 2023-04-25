@@ -7,10 +7,9 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const { Configuration, OpenAIApi } = require("openai");
-
-
-const apiKey = process.env.API_KEY;
-
+const http = require('http');
+const PORT = process.env.PORT || 4000;
+const server = http.createServer(app);
 
 app.use(cors());
 
@@ -43,7 +42,8 @@ app.post('/api/images', async (req, res) => {
   res.json(data);
 });
 
-app.listen(3001, () => {
-  console.log('Server is running on port 3001');
-});
 
+
+server.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});

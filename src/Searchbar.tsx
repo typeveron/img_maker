@@ -35,7 +35,7 @@ const generateId = (): string => {
     return (
       <div className="search-bar-container">
         <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch}>Create</button>
         <ul>
           {searchResults.map(result => (
             <li key={generateId()}>
