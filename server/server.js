@@ -42,6 +42,10 @@ app.post('/api/images', async (req, res) => {
   res.json(data);
 });
 
+app.get('/test', (req, res) => {
+   res.send('Test successful');
+})
+
 
 
 server.listen(PORT, () => {
