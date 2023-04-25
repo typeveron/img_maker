@@ -23,7 +23,7 @@ const generateId = (): string => {
   
     const handleSearch = async () => {
       try {
-        const response = await axios.post('/api/images', {
+        const response = await axios.post(`${URL}/api/images`, {
           prompt: searchTerm,
           n: 3,
           size: '512x512'
