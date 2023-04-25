@@ -28,19 +28,26 @@ app.post('/api/images', async (req, res) => {
   });
 
   const openai = new OpenAIApi(configuration);
-  const response = await openai.createImage({
-    prompt: prompt,
-    n: n,
-    size: size,
-  });
 
-  
-  // Extract the relevant data from the response object
-  const { data } = response.data;
+  try {
+    const response = await openai.createImage({
+      prompt: prompt,
+      n: n,
+      size: size,
+    });
 
-  // Send the data back to the client
-  res.json(data);
+    // Extract the relevant data from the response object
+    const { data } = response.data;
+
+    // Send the data back to the client
+    res.json(data);
+  } catch (error) {
+    // Handle the promise rejection error
+    console.error(error);
+    res.status(500).send('Something went wrong!');
+  }
 });
+
 
 app.get('/test', (req, res) => {
    res.send('Test successful');
