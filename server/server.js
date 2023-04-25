@@ -10,6 +10,19 @@ const { Configuration, OpenAIApi } = require("openai");
 const http = require('http');
 const PORT = process.env.PORT || 4000;
 const server = http.createServer(app);
+const winston = require('winston');
+
+const logger = winston.createLogger({
+  level: 'info',
+  format: winston.format.json(),
+  defaultMeta: { service: 'my-app' },
+  transports: [
+    new winston.transports.Console(),
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.File({ filename: 'combined.log' }),
+  ],
+});
+
 
 app.use(cors());
 
@@ -39,6 +52,9 @@ app.post('/api/images', async (req, res) => {
     // Extract the relevant data from the response object
     const { data } = response.data;
 
+     // Log the data
+     console.log(data);
+
     // Send the data back to the client
     res.json(data);
   } catch (error) {
@@ -51,6 +67,7 @@ app.post('/api/images', async (req, res) => {
 
 app.get('/test', (req, res) => {
    res.send('Test successful');
+   logger.log('info', 'Test successful');
 })
 
 
